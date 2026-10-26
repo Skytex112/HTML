@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 28px;
+      color: #202124;
+      background: #f4f4f4;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .registration {
+      width: min(100%, 1120px);
+      margin: 0 auto;
+      background: #fff;
+      box-shadow: 0 5px 16px rgb(0 0 0 / 28%);
+    }
+
+    .registration-content {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 42px;
+      padding: 42px 44px 40px;
+    }
+
+    .form-section h1,
+    .form-section h2 {
+      margin: 0 0 22px;
+      font-size: 25px;
+      font-weight: 400;
+    }
+
+    .form-section h2 {
+      margin-bottom: 22px;
+    }
+
+    .account-fields {
+      display: grid;
+      gap: 18px;
+    }
+
+    .field-with-icon {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+    }
+
+    .field-icon {
+      position: relative;
+      display: block;
+      width: 32px;
+      height: 32px;
+      border: 2px solid #303236;
+      border-radius: 50%;
+    }
+
+    .field-icon--user::before {
+      position: absolute;
+      top: 5px;
+      left: 10px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #303236;
+      content: "";
+    }
+
+    .field-icon--user::after {
+      position: absolute;
+      bottom: 5px;
+      left: 7px;
+      width: 14px;
+      height: 8px;
+      border-radius: 8px 8px 4px 4px;
+      background: #303236;
+      content: "";
+    }
+
+    .field-icon--mail::before {
+      position: absolute;
+      top: 8px;
+      left: 5px;
+      width: 18px;
+      height: 12px;
+      border: 2px solid #303236;
+      border-radius: 2px;
+      content: "";
+    }
+
+    .field-icon--mail::after {
+      position: absolute;
+      top: 8px;
+      left: 8px;
+      width: 10px;
+      height: 7px;
+      border-right: 2px solid #303236;
+      border-bottom: 2px solid #303236;
+      transform: rotate(45deg) translate(-1px, -3px);
+      content: "";
+    }
+
+    .field-icon--lock::before {
+      position: absolute;
+      top: 5px;
+      left: 9px;
+      width: 10px;
+      height: 11px;
+      border: 2px solid #303236;
+      border-bottom: 0;
+      border-radius: 7px 7px 0 0;
+      content: "";
+    }
+
+    .field-icon--lock::after {
+      position: absolute;
+      top: 14px;
+      left: 6px;
+      width: 16px;
+      height: 11px;
+      border: 2px solid #303236;
+      border-radius: 2px;
+      background: #fff;
+      content: "";
+    }
+
+    .text-input,
+    .select-input {
+      width: 100%;
+      min-width: 0;
+      min-height: 46px;
+      border: 0;
+      border-bottom: 1px solid #969696;
+      border-radius: 0;
+      padding: 10px 14px;
+      color: #222;
+      background: transparent;
+      font: inherit;
+      font-size: 16px;
+    }
+
+    .text-input::placeholder {
+      color: #858585;
+      opacity: 1;
+    }
+
+    .text-input:focus,
+    .select-input:focus {
+      border-bottom: 2px solid #008e8d;
+      outline: 0;
+    }
+
+    .password-fields,
+    .personal-fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 20px;
+    }
+
+    .personal-fields {
+      margin-top: 28px;
+      gap: 16px 20px;
+    }
+
+    .account-options {
+      display: grid;
+      gap: 10px;
+      margin: 26px 0 0 42px;
+    }
+
+    .check-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .check-option input {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 auto;
+      margin: 2px 0 0;
+      accent-color: #008e8d;
+    }
+
+    .form-footer {
+      display: flex;
+      justify-content: flex-end;
+      padding: 34px 44px;
+      border-top: 1px solid #dedede;
+    }
+
+    .submit-button {
+      min-width: 190px;
+      min-height: 44px;
+      border: 0;
+      border-radius: 4px;
+      color: #fff;
+      background: #008e8d;
+      box-shadow: 0 2px 5px rgb(0 0 0 / 25%);
+      font: inherit;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background: #007675;
+    }
+
+    .submit-button:focus-visible,
+    .check-option input:focus-visible {
+      outline: 3px solid #174d78;
+      outline-offset: 3px;
+    }
+
+    @media (min-width: 600px) and (max-width: 900px) {
+      body {
+        padding: 26px;
+      }
+
+      .registration-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 54px;
+        padding: 48px 50px 42px;
+      }
+
+      .form-section h1,
+      .form-section h2 {
+        margin-bottom: 26px;
+        font-size: 28px;
+      }
+
+      .account-fields {
+        gap: 20px;
+      }
+
+      .field-with-icon {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .field-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .field-icon--user::before {
+        left: 12px;
+      }
+
+      .field-icon--user::after {
+        left: 9px;
+      }
+
+      .field-icon--mail::before {
+        top: 10px;
+        left: 7px;
+      }
+
+      .field-icon--mail::after {
+        top: 10px;
+        left: 10px;
+      }
+
+      .field-icon--lock::before {
+        left: 11px;
+      }
+
+      .field-icon--lock::after {
+        left: 8px;
+      }
+
+      .text-input,
+      .select-input {
+        min-height: 52px;
+        font-size: 18px;
+      }
+
+      .personal-fields {
+        margin-top: 0;
+        gap: 20px 24px;
+      }
+
+      .account-options {
+        margin-top: 32px;
+      }
+
+      .check-option {
+        font-size: 17px;
+      }
+
+      .form-footer {
+        padding: 38px 50px;
+      }
+    }
+
+    @media (max-width: 599px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      .registration-content {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+        padding: 32px 28px 30px;
+      }
+
+      .form-section h1,
+      .form-section h2 {
+        margin-bottom: 18px;
+        font-size: 24px;
+      }
+
+      .account-fields {
+        gap: 14px;
+      }
+
+      .field-with-icon {
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .password-fields,
+      .personal-fields {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 10px;
+      }
+
+      .personal-fields {
+        margin-top: 0;
+      }
+
+      .account-options {
+        margin: 24px 0 0 2px;
+      }
+
+      .form-footer {
+        padding: 24px 28px;
+      }
+
+      .submit-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="registration">
+    <form action="#" method="get">
+      <div class="registration-content">
+        <section class="form-section" aria-labelledby="registration-title">
+          <h1 id="registration-title">Registration form</h1>
+          <div class="account-fields">
+            <div class="field-with-icon">
+              <span class="field-icon field-icon--user" aria-hidden="true"></span>
+              <input class="text-input" type="text" name="username" placeholder="Username" aria-label="Username" autocomplete="username" required>
+            </div>
+            <div class="field-with-icon">
+              <span class="field-icon field-icon--mail" aria-hidden="true"></span>
+              <input class="text-input" type="email" name="email" placeholder="Email address" aria-label="Email address" autocomplete="email" required>
+            </div>
+            <div class="field-with-icon">
+              <span class="field-icon field-icon--lock" aria-hidden="true"></span>
+              <div class="password-fields">
+                <input class="text-input" type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="new-password" required>
+                <input class="text-input" type="password" name="confirm-password" placeholder="Confirm password" aria-label="Confirm password" autocomplete="new-password" required>
+              </div>
+            </div>
+          </div>
+          <div class="account-options">
+            <label class="check-option">
+              <input type="checkbox" name="newsletter" value="yes">
+              <span>I want to receive news and special offers</span>
+            </label>
+            <label class="check-option">
+              <input type="checkbox" name="terms" value="accepted" required>
+              <span>I agree with the Terms and Conditions</span>
+            </label>
+          </div>
+        </section>
+
+        <section class="form-section" aria-labelledby="personal-title">
+          <h2 id="personal-title">Personal details</h2>
+          <div class="personal-fields">
+            <input class="text-input" type="text" name="first-name" placeholder="First name" aria-label="First name" autocomplete="given-name" required>
+            <input class="text-input" type="text" name="last-name" placeholder="Last name" aria-label="Last name" autocomplete="family-name" required>
+            <select class="select-input" name="gender" aria-label="Gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+              <option value="prefer-not-to-say">Prefer not to say</option>
+            </select>
+            <input class="text-input" type="date" name="birth-date" aria-label="Date of birth" autocomplete="bday">
+          </div>
+        </section>
+      </div>
+      <footer class="form-footer">
+        <button class="submit-button" type="submit">SUBMIT</button>
+      </footer>
+    </form>
+  </main>
+</body>
+</html>
