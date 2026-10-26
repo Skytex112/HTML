@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>News columns</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 3.5%;
+      color: #454545;
+      background: #acd8e4;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .news-columns {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .news-column {
+      display: grid;
+      align-content: start;
+      gap: 24px;
+      min-width: 0;
+    }
+
+    .news-card {
+      min-width: 0;
+      background: #f7f7f7;
+    }
+
+    .news-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .news-copy {
+      padding: 14px 18px 16px;
+      font-size: clamp(12px, 1.55vw, 18px);
+      line-height: 1.5;
+    }
+
+    .news-copy h2 {
+      margin: 0 0 10px;
+      font-size: 1em;
+    }
+
+    .news-copy p {
+      margin: 0;
+    }
+
+    @media (max-width: 540px) {
+      body {
+        padding: 12px;
+      }
+
+      .news-columns,
+      .news-column {
+        gap: 10px;
+      }
+
+      .news-columns {
+        gap: 10px;
+      }
+
+      .news-copy {
+        padding: 8px;
+        font-size: 11px;
+        line-height: 1.35;
+      }
+
+      .news-copy h2 {
+        margin-bottom: 5px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="news-columns" aria-label="News">
+    <section class="news-column" aria-label="First news column">
+      <article class="news-card">
+        <img src="assets/350x150.png" alt="Image placeholder, 350 by 150 pixels">
+        <div class="news-copy">
+          <h2>Title</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis purus sed ipsum rhoncus, aliquet feugiat elit euismod.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <img src="assets/350x220.png" alt="Image placeholder, 350 by 220 pixels">
+        <div class="news-copy">
+          <p>Aenean feugiat dui et libero consectetur hendrerit.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <img src="assets/350x100.png" alt="Image placeholder, 350 by 100 pixels">
+        <div class="news-copy">
+          <h2>Title</h2>
+          <p>Mauris nec purus nec ligula euismod convallis. Vivamus ac tortor vel quam viverra tristique.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="news-column" aria-label="Second news column">
+      <article class="news-card">
+        <img src="assets/350x100.png" alt="Image placeholder, 350 by 100 pixels">
+        <div class="news-copy">
+          <p>Aliquam ornare nulla a velit vehicula, sed dignissim nunc pharetra. Fusce in dolor eu metus cursus imperdiet.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <img src="assets/350x230.png" alt="Image placeholder, 350 by 230 pixels">
+        <div class="news-copy">
+          <h2>The title</h2>
+          <p>In ultrices lorem id consectetur tempus. Mauris tristique enim in hendrerit dapibus.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <img src="assets/350x150.png" alt="Image placeholder, 350 by 150 pixels">
+        <div class="news-copy">
+          <p>Nulla ut justo iaculis, faucibus tortor non, blandit tortor. Quisque id lectus et ipsum bibendum mattis vitae sagittis magna.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="news-column" aria-label="Third news column">
+      <article class="news-card">
+        <img src="assets/350x100.png" alt="Image placeholder, 350 by 100 pixels">
+        <div class="news-copy">
+          <h2>A little longer title</h2>
+          <p>Aenean accumsan turpis gravida feugiat molestie. Aliquam ornare nulla a velit vehicula, sed dignissim nunc pharetra.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <img src="assets/350x350.png" alt="Image placeholder, 350 by 350 pixels">
+        <div class="news-copy">
+          <h2>A title</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut facilisis purus sed ipsum rhoncus, aliquet feugiat elit euismod.</p>
+        </div>
+      </article>
+      <article class="news-card">
+        <img src="assets/350x150.png" alt="Image placeholder, 350 by 150 pixels">
+        <div class="news-copy">
+          <p>Vivamus ac tortor vel quam viverra tristique. Curabitur suscipit est non mattis volutpat.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

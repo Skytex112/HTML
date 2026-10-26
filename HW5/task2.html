@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 36px 20px;
+      color: #252525;
+      background: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .chat {
+      display: grid;
+      gap: 12px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    .message-row {
+      display: grid;
+      grid-template-columns: minmax(110px, 1fr) minmax(0, 2.15fr) minmax(110px, 1fr);
+      gap: 18px;
+      align-items: center;
+    }
+
+    .person {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      min-width: 0;
+      font-size: 16px;
+    }
+
+    .person--left {
+      grid-column: 1;
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    .person--right {
+      grid-column: 3;
+      justify-content: flex-start;
+      text-align: left;
+    }
+
+    .person img {
+      display: block;
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
+      image-rendering: pixelated;
+    }
+
+    .person-name,
+    .message-time {
+      display: block;
+    }
+
+    .message-time {
+      margin-top: 3px;
+      color: #888;
+      font-size: 13px;
+    }
+
+    .bubble {
+      grid-column: 2;
+      margin: 0;
+      padding: 24px 26px;
+      border-radius: 26px;
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    .message-row--left .bubble {
+      border-bottom-left-radius: 5px;
+      background: #f7b4c1;
+    }
+
+    .message-row--right .bubble {
+      border-bottom-right-radius: 5px;
+      background: #acd8e4;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      .chat {
+        gap: 10px;
+      }
+
+      .message-row {
+        grid-template-columns: minmax(64px, 0.75fr) minmax(0, 2.3fr) minmax(64px, 0.75fr);
+        gap: 8px;
+      }
+
+      .person {
+        flex-direction: column;
+        gap: 4px;
+        font-size: 11px;
+      }
+
+      .person--left {
+        grid-column: 1;
+        text-align: center;
+      }
+
+      .person--right {
+        grid-column: 3;
+        text-align: center;
+      }
+
+      .person img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .message-time {
+        margin-top: 2px;
+        font-size: 10px;
+      }
+
+      .bubble {
+        padding: 14px;
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="chat" aria-label="Conversation between Anie Smith and Jack Silverston">
+    <article class="message-row message-row--left">
+      <div class="person person--left">
+        <span>
+          <span class="person-name">Anie Smith</span>
+          <time class="message-time" datetime="PT4H">4 hours ago</time>
+        </span>
+        <img src="assets/avatar_2.png" alt="Anie Smith">
+      </div>
+      <p class="bubble">Ut in enim scelerisque, pharetra velit id, maximus nunc</p>
+    </article>
+
+    <article class="message-row message-row--right">
+      <p class="bubble">Fusce auctor nibh at consequat efficitur</p>
+      <div class="person person--right">
+        <img src="assets/avatar_1.png" alt="Jack Silverston">
+        <span>
+          <span class="person-name">Jack Silverston</span>
+          <time class="message-time" datetime="PT4H">4 hours ago</time>
+        </span>
+      </div>
+    </article>
+
+    <article class="message-row message-row--left">
+      <div class="person person--left">
+        <span>
+          <span class="person-name">Anie Smith</span>
+          <time class="message-time" datetime="PT4H">4 hours ago</time>
+        </span>
+        <img src="assets/avatar_2.png" alt="Anie Smith">
+      </div>
+      <p class="bubble">Etiam lacinia velit id venenatis sodales</p>
+    </article>
+
+    <article class="message-row message-row--right">
+      <p class="bubble">Mauris ac mi quis ante dignissim tempus in non nulla</p>
+      <div class="person person--right">
+        <img src="assets/avatar_1.png" alt="Jack Silverston">
+        <span>
+          <span class="person-name">Jack Silverston</span>
+          <time class="message-time" datetime="PT3H">3 hours ago</time>
+        </span>
+      </div>
+    </article>
+
+    <article class="message-row message-row--left">
+      <div class="person person--left">
+        <span>
+          <span class="person-name">Anie Smith</span>
+          <time class="message-time" datetime="PT3H">3 hours ago</time>
+        </span>
+        <img src="assets/avatar_2.png" alt="Anie Smith">
+      </div>
+      <p class="bubble">Fusce quis ex fringilla, congue diam vel, sodales tortor</p>
+    </article>
+
+    <article class="message-row message-row--right">
+      <p class="bubble">Curabitur quis dolor eget elit pulvinar sollicitudin</p>
+      <div class="person person--right">
+        <img src="assets/avatar_1.png" alt="Jack Silverston">
+        <span>
+          <span class="person-name">Jack Silverston</span>
+          <time class="message-time" datetime="PT2H">2 hours ago</time>
+        </span>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
