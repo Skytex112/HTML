@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticky table</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      color: #26343a;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size: 24px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1100px;
+      border-collapse: separate;
+      border-spacing: 0;
+      text-align: center;
+    }
+
+    th,
+    td {
+      min-width: 130px;
+      padding: 18px;
+      border-bottom: 1px solid #d9e0e2;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #a9dce5;
+      color: #18343b;
+    }
+
+    tr > :first-child {
+      position: sticky;
+      left: 0;
+      z-index: 1;
+      min-width: 120px;
+      background: #b3e1e8;
+      font-weight: 700;
+    }
+
+    thead tr > :first-child {
+      z-index: 3;
+    }
+
+    tbody tr:nth-child(even) > :not(:first-child) {
+      background: #ededed;
+    }
+
+    tbody tr:nth-child(odd) > :not(:first-child) {
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sticky table</h1>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">Row</th>
+        <th scope="col">Header 1</th>
+        <th scope="col">Header 2</th>
+        <th scope="col">Header 3</th>
+        <th scope="col">Header 4</th>
+        <th scope="col">Header 5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><th scope="row">Line 1</th><td>23</td><td>123</td><td>43</td><td>12</td><td>76</td></tr>
+      <tr><th scope="row">Line 2</th><td>23</td><td>123</td><td>43</td><td>12</td><td>76</td></tr>
+      <tr><th scope="row">Line 3</th><td>34</td><td>63</td><td>25</td><td>7</td><td>23</td></tr>
+      <tr><th scope="row">Line 4</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+      <tr><th scope="row">Line 5</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+      <tr><th scope="row">Line 6</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+      <tr><th scope="row">Line 7</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+      <tr><th scope="row">Line 8</th><td>23</td><td>23</td><td>23</td><td>23</td><td>23</td></tr>
+      <tr><th scope="row">Line 9</th><td>23</td><td>45</td><td>31</td><td>18</td><td>62</td></tr>
+      <tr><th scope="row">Line 10</th><td>17</td><td>56</td><td>39</td><td>21</td><td>84</td></tr>
+      <tr><th scope="row">Line 11</th><td>42</td><td>71</td><td>28</td><td>16</td><td>53</td></tr>
+      <tr><th scope="row">Line 12</th><td>35</td><td>68</td><td>49</td><td>14</td><td>91</td></tr>
+    </tbody>
+  </table>
+</body>
+</html>

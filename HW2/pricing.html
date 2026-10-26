@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Choose your plan</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #f3f3f3;
+      color: #171717;
+      font-family: Arial, sans-serif;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      align-items: center;
+      gap: 14px;
+      width: min(100% - 32px, 920px);
+      padding: 28px 18px;
+    }
+
+    .plan {
+      position: relative;
+      z-index: 0;
+      min-width: 0;
+      padding: 20px 12px 18px;
+      border: 1px solid #c9c9c9;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 25%);
+      text-align: center;
+      transition: transform 1s ease;
+    }
+
+    .plan:hover {
+      z-index: 1;
+      transform: scale(1.15);
+    }
+
+    .plan h2 {
+      margin: -20px -12px 16px;
+      padding: 14px 4px 10px;
+      border-bottom: 3px solid var(--accent);
+      font-size: clamp(11px, 1.6vw, 15px);
+    }
+
+    .price {
+      margin: 0;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+    }
+
+    .period {
+      margin: 4px 0 18px;
+      color: #999;
+      font-size: 12px;
+    }
+
+    .features {
+      min-height: 86px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-size: clamp(9px, 1.2vw, 12px);
+      line-height: 1.8;
+    }
+
+    .buy {
+      min-width: 80px;
+      margin-top: 16px;
+      padding: 9px 14px;
+      border: 0;
+      border-radius: 3px;
+      background: var(--accent);
+      color: #fff;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .buy:hover,
+    .buy:focus-visible {
+      filter: brightness(0.9);
+    }
+
+    .enterprise {
+      --accent: #c7375b;
+    }
+
+    .professional {
+      --accent: #d99a36;
+    }
+
+    .standard {
+      --accent: #27758d;
+    }
+
+    .basic {
+      --accent: #62b936;
+    }
+
+    @media (max-width: 620px) {
+      .plans {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 14px;
+        padding: 24px 8px;
+      }
+
+      .plan:hover {
+        transform: scale(1.06);
+      }
+
+      .plan h2 {
+        font-size: 13px;
+      }
+    }
+
+    @media (max-width: 350px) {
+      .plans {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="plans" aria-label="Subscription plans">
+    <article class="plan enterprise">
+      <h2>ENTERPRISE</h2>
+      <p class="price">$69</p>
+      <p class="period">per month</p>
+      <ul class="features">
+        <li>10GB disk space</li>
+        <li>100GB monthly bandwidth</li>
+        <li>20 email accounts</li>
+        <li>Unlimited subdomains</li>
+      </ul>
+      <button class="buy" type="button">BUY</button>
+    </article>
+    <article class="plan professional">
+      <h2>PROFESSIONAL</h2>
+      <p class="price">$29</p>
+      <p class="period">per month</p>
+      <ul class="features">
+        <li>5GB disk space</li>
+        <li>60GB monthly bandwidth</li>
+        <li>10 email accounts</li>
+        <li>Unlimited subdomains</li>
+      </ul>
+      <button class="buy" type="button">BUY</button>
+    </article>
+    <article class="plan standard">
+      <h2>STANDARD</h2>
+      <p class="price">$19</p>
+      <p class="period">per month</p>
+      <ul class="features">
+        <li>3GB disk space</li>
+        <li>30GB monthly bandwidth</li>
+        <li>5 email accounts</li>
+        <li>Unlimited subdomains</li>
+      </ul>
+      <button class="buy" type="button">BUY</button>
+    </article>
+    <article class="plan basic">
+      <h2>BASIC</h2>
+      <p class="price">$9</p>
+      <p class="period">per month</p>
+      <ul class="features">
+        <li>1GB disk space</li>
+        <li>10GB monthly bandwidth</li>
+        <li>2 email accounts</li>
+        <li>Unlimited subdomains</li>
+      </ul>
+      <button class="buy" type="button">BUY</button>
+    </article>
+  </main>
+</body>
+</html>
