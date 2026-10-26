@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 7px;
+  color: #111;
+  background: #fff;
+  font: 11px/1.2 Arial, Helvetica, sans-serif;
+  letter-spacing: 0.35px;
+}
+
+.page {
+  width: min(100%, 824px);
+  margin: 0;
+}
+
+.site-header {
+  position: relative;
+  height: 43px;
+  border: 1px solid #2862a5;
+}
+
+.brand,
+.brand img {
+  display: block;
+  width: 195px;
+  height: 40px;
+}
+
+.top-nav {
+  position: absolute;
+  right: 4px;
+  bottom: 1px;
+  display: flex;
+  gap: 17px;
+}
+
+.top-nav a {
+  color: #8c8848;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 160px minmax(0, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.sidebar {
+  align-self: start;
+  border: 1px solid #2862a5;
+  color: #888447;
+}
+
+.sidebar h2 {
+  margin: 0;
+  padding: 3px 6px;
+  border-bottom: 1px solid #2862a5;
+  color: #174b84;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.side-links {
+  display: flex;
+  flex-direction: column;
+  padding: 7px 6px 6px;
+  gap: 9px;
+}
+
+.side-links a {
+  color: inherit;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.content > h1 {
+  margin: 0;
+  padding: 2px 6px;
+  background: #386c9b;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.2;
+}
+
+.content-inner {
+  padding: 8px 12px 0;
+}
+
+.content-inner h2 {
+  margin: 0 0 18px;
+  color: #174b84;
+  font-size: 11px;
+}
+
+.content-inner p {
+  margin: 0 0 18px;
+}
+
+.tour-image {
+  float: right;
+  width: 200px;
+  height: 256px;
+  margin: 0 56px 10px 18px;
+}
+
+.template-list {
+  margin: -1px 0 18px;
+  padding: 0;
+  color: #d00;
+  list-style: none;
+}
+
+.template-list li {
+  position: relative;
+  padding-left: 12px;
+}
+
+.template-list li::before {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  width: 5px;
+  height: 7px;
+  background: url("arrow.gif") no-repeat;
+  content: "";
+}
+
+.examples-image {
+  float: left;
+  width: 230px;
+  height: 210px;
+  margin: 2px 16px 0 2px;
+}
+
+.closing-copy {
+  padding-top: 0;
+}
+
+.closing-copy p {
+  margin-bottom: 18px;
+}
+
+@media (max-width: 650px) {
+  .top-nav {
+    position: static;
+    flex-wrap: wrap;
+    gap: 6px 12px;
+    padding: 4px;
+  }
+
+  .site-header {
+    height: auto;
+    min-height: 43px;
+  }
+
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .tour-image {
+    width: min(38vw, 200px);
+    height: auto;
+    margin-right: 0;
+  }
+}
