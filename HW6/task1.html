@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Member Login</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: grid;
+      min-width: 320px;
+      min-height: 100vh;
+      place-items: center;
+      margin: 0;
+      padding: 32px 16px;
+      color: #222;
+      background: #e45c43;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .login {
+      width: min(100%, 380px);
+      text-align: center;
+    }
+
+    .login-card {
+      padding: 28px 24px 24px;
+      background: #e9e7e7;
+      box-shadow: 0 5px 12px rgb(0 0 0 / 35%);
+    }
+
+    h1 {
+      margin: 0 0 34px;
+      font-size: 29px;
+    }
+
+    .login-fields {
+      display: grid;
+      gap: 20px;
+    }
+
+    .login-fields input,
+    .login-button {
+      width: 100%;
+      min-height: 46px;
+      border: 0;
+      font: inherit;
+    }
+
+    .login-fields input {
+      padding: 12px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .login-fields input::placeholder {
+      color: #b8b8b8;
+      font-weight: 700;
+    }
+
+    .login-fields input:focus-visible,
+    button:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #174d70;
+      outline-offset: 3px;
+    }
+
+    .login-button {
+      margin-top: 5px;
+      border-bottom: 4px solid #21874a;
+      color: #fff;
+      background: #31a65d;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .forgot-link {
+      display: inline-block;
+      margin-top: 30px;
+      color: #d65a43;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .social-title {
+      margin: 28px 0 20px;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .social-link {
+      display: flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: #fff;
+      box-shadow: 0 3px 7px rgb(0 0 0 / 35%);
+      font-size: 18px;
+      text-decoration: none;
+    }
+
+    .social-link--facebook {
+      background: #3b5998;
+    }
+
+    .social-link--twitter {
+      background: #1daedb;
+    }
+
+    .social-icon {
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 360px) {
+      .login-card {
+        padding: 24px 18px 20px;
+      }
+
+      .social-links {
+        gap: 10px;
+      }
+
+      .social-link {
+        gap: 6px;
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="login">
+    <section class="login-card" aria-labelledby="login-title">
+      <h1 id="login-title">Member Login</h1>
+      <form class="login-fields" action="#" method="get">
+        <input type="text" name="username" placeholder="Username" aria-label="Username" autocomplete="username" required>
+        <input type="password" name="password" placeholder="Password" aria-label="Password" autocomplete="current-password" required>
+        <button class="login-button" type="submit">Login</button>
+      </form>
+      <a class="forgot-link" href="#forgot-password">Forgot password?</a>
+    </section>
+    <p class="social-title">... or log in with:</p>
+    <nav class="social-links" aria-label="Social login">
+      <a class="social-link social-link--facebook" href="#facebook-login">
+        <span class="social-icon" aria-hidden="true">f</span>
+        <span>Facebook</span>
+      </a>
+      <a class="social-link social-link--twitter" href="#twitter-login">
+        <span class="social-icon" aria-hidden="true">t</span>
+        <span>Twitter</span>
+      </a>
+    </nav>
+  </main>
+</body>
+</html>

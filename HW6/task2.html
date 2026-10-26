@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      padding: 48px 24px;
+      color: #fff;
+      background-color: #1e7775;
+      background-image:
+        radial-gradient(ellipse at 18% 12%, rgb(127 198 182 / 70%), transparent 34%),
+        radial-gradient(ellipse at 84% 18%, rgb(242 192 137 / 70%), transparent 30%),
+        radial-gradient(ellipse at 72% 86%, rgb(32 117 113 / 85%), transparent 38%),
+        linear-gradient(125deg, #165b63, #78bcb0 55%, #d5a477);
+      background-attachment: fixed;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .contact {
+      width: min(100%, 930px);
+      margin: 0 auto;
+      padding: 38px 40px 34px;
+      border: 1px solid rgb(255 255 255 / 42%);
+      background: rgb(16 72 72 / 32%);
+      box-shadow: 0 8px 20px rgb(0 0 0 / 30%);
+      backdrop-filter: blur(2px);
+    }
+
+    h1 {
+      margin: 0 0 22px;
+      font-size: 28px;
+    }
+
+    .intro {
+      margin: 0 0 34px;
+      line-height: 1.5;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 155px minmax(0, 1fr);
+      gap: 14px;
+      align-items: start;
+    }
+
+    .form-row > label,
+    .form-label {
+      padding-top: 11px;
+    }
+
+    .name-fields,
+    .phone-fields {
+      display: grid;
+      gap: 16px;
+    }
+
+    .name-fields {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .phone-fields {
+      grid-template-columns: 0.8fr 0.8fr 1fr;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid rgb(0 0 0 / 12%);
+      border-radius: 0;
+      padding: 10px 13px;
+      color: #333;
+      background: #fff;
+      font: inherit;
+    }
+
+    input,
+    select {
+      min-height: 42px;
+    }
+
+    input::placeholder {
+      color: #b7b7b7;
+    }
+
+    textarea {
+      min-height: 104px;
+      resize: vertical;
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible,
+    button:focus-visible {
+      outline: 3px solid #f3c438;
+      outline-offset: 2px;
+    }
+
+    .form-footer {
+      display: grid;
+      grid-template-columns: 155px minmax(0, 1fr);
+      gap: 14px;
+      margin-top: 4px;
+      padding-top: 18px;
+      border-top: 1px solid rgb(255 255 255 / 65%);
+    }
+
+    .submit-button {
+      min-height: 42px;
+      border: 2px solid #fff;
+      color: #fff;
+      background: transparent;
+      font-weight: 700;
+      letter-spacing: 1px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      color: #174f50;
+      background: #fff;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 20px 12px;
+      }
+
+      .contact {
+        padding: 26px 20px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      .intro {
+        margin-bottom: 24px;
+      }
+
+      .form-row,
+      .form-footer {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 7px;
+      }
+
+      .form-row > label,
+      .form-label {
+        padding-top: 0;
+      }
+
+      .name-fields,
+      .phone-fields {
+        gap: 8px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .name-fields,
+      .phone-fields {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="contact">
+    <h1>Contact form</h1>
+    <p class="intro">Please fill in your information and we'll be sending your order.</p>
+    <form class="contact-form" action="#" method="get">
+      <div class="form-row">
+        <span class="form-label">Your name</span>
+        <div class="name-fields">
+          <input type="text" name="first-name" placeholder="first name" aria-label="First name" autocomplete="given-name" required>
+          <input type="text" name="last-name" placeholder="last name" aria-label="Last name" autocomplete="family-name" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="email">Your email</label>
+        <input id="email" type="email" name="email" placeholder="your_mail@mail.com" autocomplete="email" required>
+      </div>
+      <div class="form-row">
+        <label for="phone-area">Phone <span aria-hidden="true">*</span></label>
+        <div class="phone-fields">
+          <input id="phone-area" type="tel" name="phone-area" placeholder="000" aria-label="Phone area code" autocomplete="tel-area-code" required>
+          <input type="tel" name="phone-prefix" placeholder="000" aria-label="Phone prefix" autocomplete="tel-local-prefix" required>
+          <input type="tel" name="phone-line" placeholder="0000" aria-label="Phone number" autocomplete="tel-local-suffix" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="subject">Message subject <span aria-hidden="true">*</span></label>
+        <select id="subject" name="subject" required>
+          <option value="other">Other</option>
+          <option value="order">Order question</option>
+          <option value="support">Customer support</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="message">Message <span aria-hidden="true">*</span></label>
+        <textarea id="message" name="message" required></textarea>
+      </div>
+      <div class="form-footer">
+        <span aria-hidden="true"></span>
+        <button class="submit-button" type="submit">SUBMIT FORM</button>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
