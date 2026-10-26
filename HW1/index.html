@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #f4f4f4;
+    }
+
+    .clock {
+      position: relative;
+      width: min(70vw, 320px);
+      aspect-ratio: 1;
+      border: 3px solid #078f8d;
+      border-radius: 50%;
+    }
+
+    .hand {
+      position: absolute;
+      bottom: 50%;
+      left: 50%;
+      width: 3px;
+      border-radius: 3px;
+      background: #078f8d;
+      transform: translateX(-50%) rotate(0deg);
+      transform-origin: center bottom;
+    }
+
+    .hand--hour {
+      height: 29%;
+    }
+
+    .hand--minute {
+      height: 41%;
+      width: 2px;
+      opacity: 0.8;
+    }
+
+    .center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #078f8d;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <main class="clock" role="img" aria-label="Аналоговий годинник">
+    <div class="hand hand--hour" id="hour-hand"></div>
+    <div class="hand hand--minute" id="minute-hand"></div>
+    <div class="center"></div>
+  </main>
+
+  <script>
+    const hourHand = document.getElementById("hour-hand");
+    const minuteHand = document.getElementById("minute-hand");
+    const startTime = Date.now();
+    const startPerformance = performance.now();
+
+    function updateClock() {
+      const elapsed = performance.now() - startPerformance;
+      const now = new Date(startTime + elapsed * 60);
+      const milliseconds = now.getMilliseconds();
+      const seconds = now.getSeconds() + milliseconds / 1000;
+      const minutes = now.getMinutes() + seconds / 60;
+      const hours = (now.getHours() % 12) + minutes / 60;
+
+      minuteHand.style.transform = `translateX(-50%) rotate(${minutes * 6}deg)`;
+      hourHand.style.transform = `translateX(-50%) rotate(${hours * 30}deg)`;
+
+      requestAnimationFrame(updateClock);
+    }
+
+    updateClock();
+  </script>
+</body>
+</html>

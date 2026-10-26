@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    .scene {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: min(90vw, 560px);
+      height: 210px;
+      background: #f4f4f4;
+      perspective: 300px;
+      outline: none;
+    }
+
+    .message {
+      position: absolute;
+      z-index: 2;
+      color: #111;
+      font-size: 20px;
+      font-weight: 700;
+      opacity: 0;
+    }
+
+    .doors {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      width: 84%;
+      height: 72%;
+      transform-style: preserve-3d;
+    }
+
+    .door {
+      width: 50%;
+      height: 100%;
+      border: 4px solid #651346;
+      background: #862c65;
+      transform-style: preserve-3d;
+    }
+
+    .door:first-child {
+      transform-origin: left center;
+    }
+
+    .door:last-child {
+      transform-origin: right center;
+    }
+
+    .scene:hover .door,
+    .scene:focus-visible .door {
+      transition: transform 2s ease;
+    }
+
+    .scene:hover .message,
+    .scene:focus-visible .message {
+      opacity: 1;
+      transition: opacity 0.2s ease 1.5s;
+    }
+
+    .scene:hover .door:first-child,
+    .scene:focus-visible .door:first-child {
+      transform: rotateY(55deg);
+    }
+
+    .scene:hover .door:last-child,
+    .scene:focus-visible .door:last-child {
+      transform: rotateY(-55deg);
+    }
+  </style>
+</head>
+<body>
+  <main class="scene" tabindex="0" aria-label="Наведіть курсор або натисніть Tab, щоб відкрити стулки">
+    <div class="message">HELLO</div>
+    <div class="doors" aria-hidden="true">
+      <div class="door"></div>
+      <div class="door"></div>
+    </div>
+  </main>
+</body>
+</html>

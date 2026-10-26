@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#164e50"/>
+      <stop offset="1" stop-color="#092e35"/>
+    </linearGradient>
+    <linearGradient id="leaf" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#12b9aa"/>
+      <stop offset="1" stop-color="#087d79"/>
+    </linearGradient>
+    <pattern id="grain" width="19" height="19" patternUnits="userSpaceOnUse">
+      <circle cx="3" cy="5" r="1" fill="#a8e0c4" opacity=".28"/>
+      <circle cx="14" cy="13" r=".8" fill="#b3d8b4" opacity=".2"/>
+    </pattern>
+    <g id="sprig" fill="url(#leaf)" stroke="#53c6a4" stroke-width="1.5">
+      <path d="M0 180 Q115 115 250 0 Q192 139 0 180Z"/>
+      <path d="M61 154 Q44 90 65 54 Q91 102 61 154Z"/>
+      <path d="M112 124 Q105 63 137 31 Q153 86 112 124Z"/>
+      <path d="M166 83 Q163 32 199 8 Q211 52 166 83Z"/>
+      <path d="M73 151 Q134 145 162 164 Q118 186 73 151Z"/>
+      <path d="M123 114 Q181 104 211 122 Q171 147 123 114Z"/>
+      <path d="M0 180 Q114 125 233 17"/>
+    </g>
+  </defs>
+  <path fill="url(#bg)" d="M0 0h640v400H0z"/>
+  <g opacity=".82">
+    <use href="#sprig" transform="translate(-12 30) rotate(-8 120 90)"/>
+    <use href="#sprig" transform="translate(210 -24) rotate(38 120 90) scale(.92)"/>
+    <use href="#sprig" transform="translate(427 73) rotate(152 120 90) scale(1.1)"/>
+    <use href="#sprig" transform="translate(36 255) rotate(-38 120 90) scale(.9)"/>
+    <use href="#sprig" transform="translate(285 220) rotate(198 120 90) scale(1.1)"/>
+  </g>
+  <path fill="url(#grain)" d="M0 0h640v400H0z"/>
+</svg>
