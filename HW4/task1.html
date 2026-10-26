@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video upload</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      padding: 30px;
+      color: #111;
+      background: #f5f5f5;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .upload-card {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) minmax(260px, 2fr) minmax(120px, 0.6fr);
+      gap: 22px;
+      align-items: start;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px;
+      border: 1px solid #b7b7b7;
+      background: #fafafa;
+      box-shadow: 0 2px 7px rgb(0 0 0 / 25%);
+    }
+
+    .preview {
+      display: block;
+      width: 100%;
+      min-height: 126px;
+      background: #c5c5c5;
+      object-fit: cover;
+    }
+
+    .upload-info {
+      min-width: 0;
+    }
+
+    .progress {
+      display: grid;
+      grid-template-columns: 40% 1fr;
+      min-height: 36px;
+      border: 1px solid #49649a;
+      color: #333;
+      font-size: 14px;
+    }
+
+    .progress span {
+      display: flex;
+      align-items: center;
+      padding: 7px 12px;
+    }
+
+    .progress-value {
+      background: #d2d8e4;
+    }
+
+    .time-remaining {
+      justify-content: flex-end;
+      text-align: right;
+    }
+
+    h1 {
+      margin: 22px 0 14px;
+      font-size: 20px;
+    }
+
+    .notice {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .done {
+      min-height: 36px;
+      padding: 8px 16px;
+      border: 0;
+      color: #fff;
+      background: #405f9c;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .done:hover,
+    .done:focus-visible {
+      background: #304b80;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 24px 20px;
+      }
+
+      .upload-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 24px;
+      }
+
+      .preview {
+        min-height: 0;
+        aspect-ratio: 1.15;
+        object-fit: cover;
+      }
+
+      .progress {
+        min-height: 40px;
+        font-size: 16px;
+      }
+
+      h1 {
+        margin-top: 28px;
+      }
+
+      .notice {
+        font-size: 16px;
+      }
+
+      .done {
+        min-height: 42px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="upload-card">
+    <img class="preview" src="assets/loading.png" alt="Video upload in progress">
+
+    <section class="upload-info" aria-labelledby="video-title">
+      <div class="progress" role="img" aria-label="Uploading 40 percent; about 23 minutes remaining">
+        <span class="progress-value">UPLOADING 40%</span>
+        <span class="time-remaining">About 23 minutes remaining</span>
+      </div>
+      <h1 id="video-title">Title of video</h1>
+      <p class="notice">* Your video is still uploading. Please keep this page open until it's done.</p>
+    </section>
+
+    <button class="done" type="button">DONE</button>
+  </main>
+</body>
+</html>
